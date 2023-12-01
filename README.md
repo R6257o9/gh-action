@@ -111,3 +111,31 @@ jobs: # Definición de los jobs
 ```
 
 ## Creando tu primer workflow file con GitHub Actions
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  push:
+    branches:
+      - "01-hello-world"
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v4
+
+      - name: Setup variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+
+      - name: Install dependencies and build
+        run: |
+          yarn install
+          yarn start
+      - name: Run main.js
+        run: npm run build && node dist/main.js
+```
