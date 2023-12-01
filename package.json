@@ -1,17 +1,21 @@
 {
   "name": "gh-action",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "repository": "git@github.com:selaj253/gh-action.git",
   "author": "Hugo Orlando <hugo.orlando2050@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc"
+    "dev": "tsnd --respawn --clear src/main.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/main.js"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
     "typescript": "^5.3.2"
   },
   "dependencies": {
+    "@types/node": "^20.10.1",
     "dotenv": "^16.3.1"
   }
 }
