@@ -43,3 +43,65 @@ El flujo CI/CD consta en 8 secciones que se repetirán cíclicamente, 4 para CI 
 **_Operate:_** Mantener el proyecto a flote.
 
 **_Measure:_** Medir con métricas la calidad del servicio.
+
+## Conceptos básicos del flujo de trabajo con GitHub Actions
+
+**_¿Cuáles son los componentes principales de GitHub Actions?_**
+
+Primero, hablemos de los cuatro elementos principales de GitHub Actions: **_Workflow, Job, Step y Action_**. Cada uno encapsula al siguiente de manera jerárquica.
+
+Por ejemplo, un Workflow puede contener uno o más Jobs, un Job puede integrar varios Steps, y un Step puede incluir un Action.
+
+**_¿Qué es un Workflow?_**
+
+Un Workflow es el proceso más amplio y automatizado que ejecuta uno o varios Jobs. Se define mediante un archivo YAML en la carpeta .github/workflows de cada repositorio y cada repositorio puede tener varios Workflows.
+
+**_¿Qué es un Job?_**
+
+Un Job es un conjunto de Steps o tareas que viven dentro de un Workflow. Los Steps de un Job siempre se ejecutan en orden y de forma secuencial, dependiendo del término del anterior.
+
+**_¿Qué es un Step?_**
+
+Un Step es una parte del Job que puede ser un script de Shell (un comando en la terminal) o un Action predefinido que se ejecuta.
+
+**_¿Qué es un Action?_**
+
+Un Action es una aplicación personalizada que realiza una tarea compleja de forma repetitiva para evitar escribir código repetitivo.
+
+**_¿Qué otros conceptos son importantes en GitHub Actions?_**
+
+Aparte de estos cuatro componentes clave, dos conceptos adicionales son esenciales para entender GitHub Actions: Eventos y Runners.
+
+**_¿Qué es un Evento?_**
+
+Un Evento es una actividad específica en el repositorio que activa la ejecución de un Workflow. Estos pueden ser internos o externos.
+
+**_¿Qué es un Runner?_**
+
+Un Runner es el servidor donde se ejecutan nuestros workflows. GitHub proporciona runners que tienen diferentes sistemas operativos: Ubuntu, Windows o MacOS.
+
+**_¿Cómo se estructura un Workflow en código?_**
+
+El formato YAML se utiliza para definir un Workflow, y se suele alojar en la carpeta .github de tu repositorio. Un archivo de workflow está organizado jerárquicamente, con etiquetas para identificar diferentes secciones, como Jobs y Steps.
+
+**_¿Cómo se integran los Actions en un Workflow?_**
+
+Los Actions permiten condensar múltiples tareas en una sola tarea. Estos pueden ser desarrollados por nosotros mismos, comunidades, GitHub o empresas, y están disponibles en el GitHub Marketplace.
+
+Al final, entender y usar GitHub Actions es la clave para implementar la integración continua y el despliegue continuo - permitiendo una mejor automatización y ahorro de tiempo para los desarrolladores.
+
+**_Ejemplo de un Workflow_**
+
+```yml
+name: hola-mundo # Nombre del workflow
+on: [push] # Evento (Trigger) que lo activará
+jobs: # Definición de los jobs
+	hola-mundo: # Nombre del job
+		runs-on: ubuntu-latest # Maquina en la que correrá
+		steps: # Lista de steps del job hola-mundo
+			- name: Public IP # Nombre del step
+				id : ip # Identificador usable dentro del job para otros steps
+				uses: haythem/public-ip@v1.3 # Usará el action haythem/public-ip
+			- name: Hola mundo # Segundo step de nombre Hola mundo
+				run : echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! # Bash
+```
