@@ -22,4 +22,4 @@ jobs:
           yarn install
           yarn start
       - name: Run main.js
-        run: node dist/main.js
+        run: npm run build && node dist/main.js
