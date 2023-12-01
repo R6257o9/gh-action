@@ -150,17 +150,85 @@ Cuando haces 'push' de un nuevo 'commit' en alguna rama que tú definas, puedes 
 
 Esta acción también se puede configurar para todas las ramas y puede especificar a qué ramas afectará mediante la opción 'branches'. Y con la opción 'paths' puedes especificar qué archivos deben modificarse para que el 'workflow' se active.
 
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  push:
+    branches:
+      - "main"
+      - "realease/**
+    paths:
+      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+```
+
 **_¿Cómo se utiliza el 'trigger' de 'pull request'?_**
 
 El 'trigger' 'pull request' ofrece características muy similares al de 'push'. Esto incluye 'branches' y 'paths', y también incluye 'types', que te permite especificar sobre qué acciones sobre 'pull request' quieres que se active.
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  pull-request:
+    types: # nos permite tomar sub acciones sobre un pull request
+      - [opened, labeled] # se va a correr cuando se abra un pull request (opened) o cuando alguien le agregue una etiqueta (labeled) a al pull request
+    branches:
+      - "realease/**
+    paths:
+      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+```
 
 **_¿Cómo manejar la opción 'issues' y 'issue comment'?_**
 
 El 'trigger' 'issues' funciona de manera similar al 'pull request', y tiene los mismos 'types'. Sin embargo, 'issue comment' funciona cuando se hacen comentarios nuevos sobre un 'issue' o 'pull request', y también puedes especificar si la acción se ejecuta solo en los comentarios de un 'pull request'.
 
+`issues`
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  issues:
+    types: # nos permite tomar sub acciones sobre un issue
+      - [opened, edited, closed] # se va a correr cuando se abra un issue (opened), se edite (edited) o cierre (closed) el issue
+    branches:
+      - "realease/**
+    paths:
+      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+```
+
+`issue-comment`
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  issues_comment:
+    types: # nos permite tomar sub acciones sobre un issue-comment
+      - [created, deleted] # se va a correr cuando se cree (created) o elimine (deleted) el issue-comment
+    branches:
+      - "realease/**
+    paths:
+      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+```
+
 **_¿Cómo lanzar 'workflows' de forma manual con 'workflow dispatch'?_**
 
 El 'workflow dispatch' te permite lanzar un 'workflow' de forma manual y agregar los parámetros que desees. Puedes crear 'inputs', y estos pueden ser de diferentes tipos, como una elección, un boolean, o un string.
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  issues:
+    types: # nos permite tomar sub acciones sobre un pull request
+      - [opened, edited, closed] # se va a correr cuando se abra un pull request (opened) o cuando alguien le agregue una etiqueta (labeled) a al pull request o cuando se cierre (closed) el pull request
+    branches:
+      - "realease/**
+    paths:
+      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+```
 
 **_¿Cómo programar eventos con el 'schedule'?_**
 Finalmente, el 'trigger' 'schedule' te permite programar eventos que ocurran a intervalos regulares. Puedes especificar los minutos, la hora, el día del mes, el mes, y el día de la semana.
