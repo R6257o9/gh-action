@@ -18,7 +18,9 @@ Algunas de estas ventajas son la posibilidad de automatizar cualquier cosa del f
 
 Además, para repositorios públicos, GitHub Actions es un servicio gratuito.
 
-Github Actions es una plataforma de integración y despliegue continuo CI/CD (Continuous Integration / Continuous Deployment) que permite automatizar procesos de compilación, pruebas y despliegue.
+## CI/CD (Continuous Integration/Continuous Deployment)
+
+**_Github Actions_** es una plataforma de integración y despliegue continuo CI/CD (Continuous Integration/Continuous Deployment) que permite automatizar procesos de compilación, pruebas y despliegue.
 
 El flujo CI/CD consta en 8 secciones que se repetirán cíclicamente, 4 para CI y 4 para CD.
 
