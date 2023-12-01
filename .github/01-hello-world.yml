@@ -19,6 +19,6 @@ jobs:
       - name: Install dependencies and build
         run: |
           yarn install
-          yarn run build
+          yarn start
       - name: Run main.js
         run: node dist/main.js
