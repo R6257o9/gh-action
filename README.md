@@ -96,12 +96,12 @@ Al final, entender y usar GitHub Actions es la clave para implementar la integra
 name: hola-mundo # Nombre del workflow
 on: [push] # Evento (Trigger) que lo activará
 jobs: # Definición de los jobs
-	hola-mundo: # Nombre del job
-		runs-on: ubuntu-latest # Maquina en la que correrá
-		steps: # Lista de steps del job hola-mundo
-			- name: Public IP # Nombre del step
-				id : ip # Identificador usable dentro del job para otros steps
-				uses: haythem/public-ip@v1.3 # Usará el action haythem/public-ip
-			- name: Hola mundo # Segundo step de nombre Hola mundo
-				run : echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! # Bash
+  hola-mundo: # Nombre del job
+    runs-on: ubuntu-latest # Máquina en la que correrá
+    steps: # Lista de steps del job hola-mundo
+      - name: Public IP # Nombre del step
+        id: ip # Identificador usable dentro del job para otros steps
+        uses: haythem/public-ip@v1.3 # Usará el action haythem/public-ip
+      - name: Hola mundo # Segundo step de nombre Hola mundo
+        run: echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! # Bash formatear código
 ```
