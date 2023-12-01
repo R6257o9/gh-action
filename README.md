@@ -139,3 +139,32 @@ jobs:
       - name: Run main.js
         run: npm run build && node dist/main.js
 ```
+
+## Triggers
+
+**_GitHub Actions_** nos ofrece una amplia lista de '**_triggers_**' que pueden lanzar nuestros 'workflows'. Algunos de los más comunes incluyen 'push', 'pull request', 'issue', 'issue comment', 'workflow dispatch', y 'schedule'.
+
+**_¿Cómo funciona el 'trigger' de 'push'?_**
+
+Cuando haces 'push' de un nuevo 'commit' en alguna rama que tú definas, puedes activar un 'workflow'.
+
+Esta acción también se puede configurar para todas las ramas y puede especificar a qué ramas afectará mediante la opción 'branches'. Y con la opción 'paths' puedes especificar qué archivos deben modificarse para que el 'workflow' se active.
+
+**_¿Cómo se utiliza el 'trigger' de 'pull request'?_**
+
+El 'trigger' 'pull request' ofrece características muy similares al de 'push'. Esto incluye 'branches' y 'paths', y también incluye 'types', que te permite especificar sobre qué acciones sobre 'pull request' quieres que se active.
+
+**_¿Cómo manejar la opción 'issues' y 'issue comment'?_**
+
+El 'trigger' 'issues' funciona de manera similar al 'pull request', y tiene los mismos 'types'. Sin embargo, 'issue comment' funciona cuando se hacen comentarios nuevos sobre un 'issue' o 'pull request', y también puedes especificar si la acción se ejecuta solo en los comentarios de un 'pull request'.
+
+**_¿Cómo lanzar 'workflows' de forma manual con 'workflow dispatch'?_**
+
+El 'workflow dispatch' te permite lanzar un 'workflow' de forma manual y agregar los parámetros que desees. Puedes crear 'inputs', y estos pueden ser de diferentes tipos, como una elección, un boolean, o un string.
+
+**_¿Cómo programar eventos con el 'schedule'?_**
+Finalmente, el 'trigger' 'schedule' te permite programar eventos que ocurran a intervalos regulares. Puedes especificar los minutos, la hora, el día del mes, el mes, y el día de la semana.
+
+**_¿Cómo puedes practicar la creación de 'workflows' basados en 'triggers'?_**
+
+Para practicar la creación de 'workflows', te recomiendo que crees un nuevo archivo 'workflow' que use al menos tres de los 'triggers' que acabamos de explicar.
