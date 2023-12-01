@@ -192,10 +192,6 @@ on:
   issues:
     types: # nos permite tomar sub acciones sobre un issue
       - [opened, edited, closed] # se va a correr cuando se abra un issue (opened), se edite (edited) o cierre (closed) el issue
-    branches:
-      - "realease/**
-    paths:
-      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
 ```
 
 `issue-comment`
@@ -204,13 +200,14 @@ on:
 name: hello-world
 run-name: "Hello, World! from TS script"
 on:
-  issues_comment:
+  issues_comment: # comentarios sobre un issue
     types: # nos permite tomar sub acciones sobre un issue-comment
       - [created, deleted] # se va a correr cuando se cree (created) o elimine (deleted) el issue-comment
-    branches:
-      - "realease/**
-    paths:
-      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+on: issue_comment
+jobs:
+  pr_commented: # comentarios sobre pull request
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
 ```
 
 **_¿Cómo lanzar 'workflows' de forma manual con 'workflow dispatch'?_**
@@ -221,13 +218,32 @@ El 'workflow dispatch' te permite lanzar un 'workflow' de forma manual y agregar
 name: hello-world
 run-name: "Hello, World! from TS script"
 on:
-  issues:
-    types: # nos permite tomar sub acciones sobre un pull request
-      - [opened, edited, closed] # se va a correr cuando se abra un pull request (opened) o cuando alguien le agregue una etiqueta (labeled) a al pull request o cuando se cierre (closed) el pull request
-    branches:
-      - "realease/**
-    paths:
-      - "**.ts" # el workflow va a correr cuando hacemos un push sobre cualquier archivo .ts
+  workflow_dispatch: # corre un workflow de manera manual
+    inputs: # inputs de alerta con una descripcion, es requerido, con un valor por default (medio) de tipo eleccion (type: choice)
+      alerta:
+        description: "nivel"
+        required: true
+        default: medio
+        type: choice
+        options:
+          - bajo
+          - medio
+```
+
+```yml
+name: hello-world
+run-name: "Hello, World! from TS script"
+on:
+  workflow_dispatch: # corre un workflow de manera manual
+    inputs:
+      tags:
+        description: "Opcional"
+        required: false
+        type: boolean
+      environment:
+        description: "Objetivo"
+        type: string
+        required: true
 ```
 
 **_¿Cómo programar eventos con el 'schedule'?_**
