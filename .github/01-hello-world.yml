@@ -1,8 +1,9 @@
 name: hello-world
+run-name: "Hello, World! from TS script"
 on:
   push:
     branches:
-      - "01-hello-world"
+      - "main"
 jobs:
   hello-world:
     runs-on: ubuntu-latest
