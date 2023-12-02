@@ -14,4 +14,4 @@ jobs:
     steps:
       - name: Gretting
         run: |
-          echo "${{ env.GRETTING }} ${{ github.actor }}, ${{ env.CITY_NAME }} is beautiful "
+          echo "${{ env.GRETTING }} ${{ github.actor }}, ${{ env.CITY_NAME }} is beautiful!"
