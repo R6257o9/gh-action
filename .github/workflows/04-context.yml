@@ -19,4 +19,4 @@ jobs:
         shell: bash
         env:
           BRANCH_NAME: ${{ github.ref }}
-      - run: echo "${{github.actor}} deploy on branch ${{ github.ref }} in repo ${{github.repository}}"
+      - run: echo "${{github.actor}} deploy on branch ${{ github.ref_name }} in repo ${{github.repository}}"
