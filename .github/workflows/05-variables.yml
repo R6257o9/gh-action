@@ -24,4 +24,4 @@ jobs:
     steps:
       - name: Lemon
         run: |
-          echo "The user $lemontag is: ${{ github.env.LEMON_TAG }}"
+          echo "The user $lemontag is: ${{ vars.LEMON_TAG }}"
