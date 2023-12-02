@@ -9,6 +9,7 @@ env:
   CITY_NAME: Buenos Aires
 jobs:
   greeting:
+    if: ${{ github.event_name != 'workflow_dispatch'}}
     runs-on: ubuntu-latest
     env:
       GRETTING: Hey
