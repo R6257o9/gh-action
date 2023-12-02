@@ -3,7 +3,10 @@ run-name: "Hello, World! from TS script"
 on:
   push:
     branches:
-      - "01-hello-world"
+      - "02-triggers"
+  issues:
+    types: [opened, labeled, edited, closed]
+
 jobs:
   hello-world:
     runs-on: ubuntu-latest
