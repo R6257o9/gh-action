@@ -1,3 +1,9 @@
-console.log("CoffeScript");
+import dotenv from "dotenv";
 
-// run -> ts-node main.ts
+dotenv.config();
+
+const hello = () => {
+  const name = process.env.USERNAME;
+  console.log(`Hey ${name} from GitHub`);
+};
+hello();

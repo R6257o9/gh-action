@@ -23,4 +23,4 @@ jobs:
           npm install -D dotenv
 
       - name: Run TS script
-        run: ts-node hello.ts
+        run: ts-node main.ts
