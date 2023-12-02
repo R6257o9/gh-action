@@ -15,3 +15,4 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.ref }}
       - run: echo "Deploy on branch ${BRANCH_NAME/refs\/heads\//}"
+      - run: echo "${{github.actor}} deploy a new context in GitHub-Action"
