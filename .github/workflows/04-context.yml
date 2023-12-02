@@ -10,13 +10,11 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploy on branch ${{ github.ref }}"
-      - run: echo "Deploy on branch ${{ github.ref }}"
-        shell: bash
+      - name: Get branch name
+        run: echo "Deploy on branch ${{ github.ref }}"
         env:
           BRANCH_NAME: ${{ github.ref }}
-      - run: echo "Deploy on branch ${{ env.BRANCH_NAME }}"
-        shell: bash
-        env:
-          BRANCH_NAME: ${{ github.ref }}
-      - run: echo "${{github.actor}} deploy on branch ${{ github.ref_name }} in repo ${{github.repository}}"
+
+      - name: Display information
+        run: |
+          echo "${{ github.actor }} deployed on branch ${{ env.BRANCH_NAME }} in repo ${{ github.repository }}"
