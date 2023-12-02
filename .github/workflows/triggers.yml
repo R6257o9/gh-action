@@ -1,8 +1,9 @@
 name: opened-issues
-run-name: "GitHub Action - Issues"
+run-name: "GitHub Actions - Opened Issue"
 on:
   issues:
-    types: ["opened"]
+    types:
+      - "opened"
 
 jobs:
   opened-issue:
