@@ -1,0 +1,38 @@
+name: Expressions
+run-name: "GitHub Action - Expressions"
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: "City"
+        required: true
+        default: "Buenos Aires"
+        type: string
+      country:
+        description: "Country"
+        required: true
+        default: "Argentina"
+        type: string
+      age:
+        description: "Age"
+        required: true
+        type: number
+jobs:
+  city:
+    if: ${{ inputs.city != 'Rio de Janeiro' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "I live in ${{ inputs.city }}"
+  country:
+    if: ${{ inputs.country == 'Argentina' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "I live in ${{ inputs.city }},${{ inputs.country }}"
+  age:
+    if: ${{ inputs.age >= 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Dark Grey"

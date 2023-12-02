@@ -30,7 +30,7 @@ on:
   schedule:
     - cron: "15 22 * * *"
 jobs:
-  hola-mundo-manual:
+  hello-manually:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,10 +51,10 @@ jobs:
 
       - name: Define Programming Language
         run: echo "LANGUAGE=${{ inputs.favorite-language }}" >> $GITHUB_ENV
-      - name: Run script
+      - name: Run bootstrap.ts script
         run: ts-node bootstrap.ts
 
-  hello-world:
+  hello:
     if: ${{ github.event_name != 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     steps:
@@ -73,5 +73,5 @@ jobs:
 
       - name: Define variable
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-      - name: Run script
+      - name: Run main.ts script
         run: ts-node main.ts
