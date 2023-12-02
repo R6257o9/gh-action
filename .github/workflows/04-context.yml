@@ -15,6 +15,6 @@ jobs:
 
       - name: Display information
         env:
-          BRANCH_NAME: ${{ github.ref }}
+          BRANCH_NAME: ${{ github.ref_name }}
         run: |
           echo "${{ github.actor }} deployed on branch ${{ env.BRANCH_NAME }} in repo ${{ github.repository }}"
