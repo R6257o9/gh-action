@@ -1,0 +1,12 @@
+name: Contexts
+run-name: "GitHub Action - Contexts"
+on:
+  push:
+    branches: main
+
+jobs:
+  check-main:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploy on branch $GITHUB_REF"
