@@ -336,3 +336,19 @@ Para solucionar este problema, es necesario agregar la variable 'saludo' al job 
 **_¿Cómo evitar errores al crear nuevos Workflows?_**
 
 Cuando se crea un nuevo Workflow, es esencial probarlo varias veces y revisar cuidadosamente todos los logs. De esta manera, podemos estar seguros de que el Workflow funciona como se espera.
+
+## Aplicar lo aprendido
+
+**_¿Cómo Aplicar lo Aprendido a un Proyecto Personal?_**
+
+Para internalizar y aplicar todo lo aprendido, te recomiendo que elijas un proyecto personal en el que hayas estado trabajando. Esto debe ser un proyecto original, o bien, puede ser un proyecto open source que encuentres interesante y disponga en GitHub de forma pública.
+
+**_¿Cuál es un Ejemplo de Cómo Implementar un Flujo de Integración y Despliegue Continuo?_**
+
+Un ejemplo específico que vamos a trabajar es el proyecto UIS Shop, mantenido por OWASP, una organización internacional que se centra en la seguridad de Internet. Este proyecto es un e-commerce, realizado con Angular para el frontend y Node para el backend, que vende zumos y algunos productos relacionados.
+
+Este proyecto también cuenta con su propia serie de tests unitarios, integración, fin a fin y otros automatizables. Además, la aplicación se puede compilar en un formato (Docker), cumpliendo con los requisitos del flujo de integración continua. El resultado de esta compilación puede llevarse a cualquier tipo de servidor para su despliegue continuo.
+
+Posteriormente, mostraremos cómo crear flows específicos para cada tipo de test y trabajaremos en distintos jobs dentro de estos flujos. Además, aprenderemos la herramienta "Retry", cómo copiar y subir reportes de coverage, y cómo verificar nuestra aplicación en distintos contextos y navegadores.
+
+GitHub Actions ofrece la flexibilidad y el nivel de personalización que necesitas para maquetar eficientemente tus proyectos. ¡Vamos a descubrirlo juntos!
