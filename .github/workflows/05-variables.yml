@@ -24,6 +24,6 @@ jobs:
     steps:
       - name: Lemon
         run: |
-          echo "The user $lemontag is: ${{ vars.LEMON_TAG }}"
+          echo "LEMON_TAG user: ${{ vars.LEMON_TAG }}"
 
         # vars.LEMON_TAG es una variable creada en GitHub
