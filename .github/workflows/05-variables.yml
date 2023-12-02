@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
 env:
   CITY_NAME: Buenos Aires
-  LEMON_TAG: ${{ github.env.LEMON_TAG }}
 jobs:
   greeting:
     runs-on: ubuntu-latest
