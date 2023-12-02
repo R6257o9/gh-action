@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 env:
   CITY_NAME: Buenos Aires
+  LEMON_TAG: ${{ github.env.LEMON_TAG }}
 jobs:
   greeting:
     runs-on: ubuntu-latest
@@ -15,3 +17,11 @@ jobs:
       - name: Gretting
         run: |
           echo "${{ env.GRETTING }} ${{ github.actor }}, ${{ env.CITY_NAME }} is beautiful!"
+
+  lemon:
+    if: ${{ github.event_name != 'push'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lemon
+        run: |
+          echo "The user $lemontag is: ${{env.LEMON_TAG}}"
