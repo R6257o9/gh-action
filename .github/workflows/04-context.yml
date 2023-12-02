@@ -1,5 +1,5 @@
 name: Contexts
-run-name: "GitHub Action - Contexts"
+run-name: "GitHub Action - Context"
 on:
   push:
     branches: main
