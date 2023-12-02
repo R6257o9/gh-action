@@ -273,6 +273,8 @@ El job "mayor" verifica si edad >= número establecido. Si es cierto, se muestra
 
 El segundo job verifica si edad < número designado. Si es cierto, muestra "minoría de edad".
 
+## Contextos
+
 **_¿Por qué son importantes los contextos en GitHub Actions?_**
 
 Ahora que dominamos las expresiones, es tiempo de enfocarnos en los contextos. Un contexto en GitHub Actions es una forma de acceder a información relevante sobre ejecuciones de workflows, variables, entorno de runners, jobs y steps.
