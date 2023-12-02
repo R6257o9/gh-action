@@ -1,28 +1,12 @@
-name: triggers
+name: hello-world
 run-name: "GitHub Action - Triggers"
 on:
-  push:
-    branches:
-      - "02-triggers"
   issues:
-    types: [opened, labeled, edited, closed]
+    types: ["opened", "edited", "closed"]
 
 jobs:
-  triggers:
+  opened-issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup nodejs
-        uses: actions/setup-node@v4
-
-      - name: Setup variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-
-      - name: Install dependencies and build
-        run: |
-          yarn install
-          yarn start
-      - name: Run main.js
-        run: npm run build && node dist/main.js
+      - name: Print message
+        run: echo "Created a new issue"
