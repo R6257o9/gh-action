@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print message
-        run: echo "I live in ${{ inputs.city }},${{ inputs.country }}"
+        run: echo "I live in ${{ inputs.city }}, ${{ inputs.country }}"
   age:
     if: ${{ inputs.age >= 18 }}
     runs-on: ubuntu-latest
