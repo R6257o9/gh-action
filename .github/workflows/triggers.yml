@@ -23,6 +23,10 @@ jobs:
 
       - name: Setup nodejs
         uses: actions/setup-node@v4
+        with:
+          node-version: "20.9.0"
+      - name: Add dependencies
+        run: npm install -g typescript ts-node
 
       - name: Run TS script
         run: "ts-node main.ts"
