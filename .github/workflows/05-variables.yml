@@ -1,0 +1,17 @@
+name: Variable
+run-name: "GitHub Action - Variable"
+on:
+  push:
+    branches:
+      - main
+env:
+  CITY_NAME: Buenos Aires
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    env:
+      GRETTING: Hey
+    steps:
+      - name: Gretting
+        run: |
+          echo "${{ env.GRETTING }} ${{ github.actor }}, ${{ env.CITY_NAME }} is beautiful "

@@ -306,3 +306,33 @@ GitHub Actions ofrece una variedad de contextos, los más destacados son:
 Un ejemplo de uso de contexto es un workflow file llamado "contexto" que se ejecuta en cada push a cualquier rama. Dentro de este file, hay un job llamado "checkMain" que verifica si estamos en la rama main usando el contexto GitHub y el atributo github.ref. Si estamos en la rama main, este job imprimirá "Desplegando en la rama main" en la terminal.
 
 Los contextos nos permiten acceder a información relevante de GitHub Actions, abriendo puertas para una configuración más innovadora y eficiente de nuestros jobs. Te animo a crear un nuevo archivo de workflow llamado contextos.yml empleando al menos un contexto
+
+## Variables
+
+Iniciamos nuestra exploración en el Marketplace de GitHub, donde descubrimos diferentes Actions. Para nuestro ejemplo, seleccionamos 'Deploy Docker to AWS'. Este Action toma una aplicación Docker y la despliega en una instancia S2 de AWS.
+
+**_¿Qué pide este Action de AWS para funcionar?_**
+
+El Action requiere que le configuremos varias variables. Por medio de Secrets, podemos configurar un access key ID, un secret access key, una default region y un .env. Esto es lo que necesita el Action para subir una aplicación de Docker a una instancia S2 de AWS.
+
+Los valores de estas variables se obtienen de las credenciales de nuestra cuenta AWS. Se guardan en el repositorio de GitHub como secrets, protegiendo así su seguridad.
+
+A partir de ahí, podemos copiar el Workflow que utiliza estos secrets en caso de necesidad si queremos subir una aplicación Docker a AWS.
+
+**_¿Cómo podemos verificar y depurar un Workflow?_**
+
+Una vez implementado el Workflow, es importante revisar los logs para verificar que está funcionando correctamente. En la pestaña de actions, se pueden ver los logs de cada ejecución del Workflow.
+
+Por ejemplo, al explorar un Workflow fallido, podemos ver el error 'process completed with exit code 1', indicando que el proceso no se completó correctamente. Detallando cada uno de los jobs, podemos identificar el paso donde se produjo el fallo.
+
+Aunque GitHub indica si un job ha sido exitoso o no, siempre es importante revisar los logs, ya que pueden existir errores no detectados por GitHub.
+
+**_¿Cómo resolver problemas en los Workflows?_**
+
+Al revisar los logs, observamos que el saludo del Workflow 'saludos y secretos' no se mostraba correctamente. El análisis de los logs reveló que la variable 'saludo' solo estaba configurada para el job 'saludo variables' y no para el job 'saludos y secretos'.
+
+Para solucionar este problema, es necesario agregar la variable 'saludo' al job 'saludos y secretos'. Con este arreglo, el saludo se muestra correctamente en los logs, indicando que el Workflow está funcionando como se esperaba.
+
+**_¿Cómo evitar errores al crear nuevos Workflows?_**
+
+Cuando se crea un nuevo Workflow, es esencial probarlo varias veces y revisar cuidadosamente todos los logs. De esta manera, podemos estar seguros de que el Workflow funciona como se espera.
