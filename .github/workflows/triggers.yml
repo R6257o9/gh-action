@@ -2,7 +2,7 @@ name: hello-world
 run-name: "GitHub Action - Issues"
 on:
   issues:
-    types: ["opened", "edited", "closed"]
+    types: ["opened"]
 
 jobs:
   opened-issue:
