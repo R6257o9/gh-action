@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: Get branch name
         run: echo "Deploy on branch ${{ github.ref }}"
-        env:
-          BRANCH_NAME: ${{ github.ref }}
 
       - name: Display information
+        env:
+          BRANCH_NAME: ${{ github.ref }}
         run: |
           echo "${{ github.actor }} deployed on branch ${{ env.BRANCH_NAME }} in repo ${{ github.repository }}"
