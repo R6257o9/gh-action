@@ -1,4 +1,4 @@
-name: hello-world
+name: opened-issues
 run-name: "GitHub Action - Issues"
 on:
   issues:
