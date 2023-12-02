@@ -252,3 +252,55 @@ Finalmente, el 'trigger' 'schedule' te permite programar eventos que ocurran a i
 **_¿Cómo puedes practicar la creación de 'workflows' basados en 'triggers'?_**
 
 Para practicar la creación de 'workflows', te recomiendo que crees un nuevo archivo 'workflow' que use al menos tres de los 'triggers' que acabamos de explicar.
+
+**_¿Cómo se utilizan las expresiones en GitHub Actions?_**
+
+Las expresiones son elementos indispensables en GitHub Actions. Permiten acceder a valores literales o de variables, comparar diferentes expresiones y utilizar varias funciones.
+
+Existen muchas funciones comunes, como `if`, `contains`, `toJson` y `fromJson`, que desempeñan roles esenciales en el control de los workflows. Por ejemplo, la función if se puede usar para determinar si se ejecuta un trabajo, mientras que contains puede restringir la ejecución a situaciones específicas.
+
+Por ahora, te animo a jugar con lo que has aprendido y te desafío a crear un archivo workflow llamado 'expresiones.yml' que utilice al menos tres de las expresiones que hemos discutido.
+
+## Expresiones
+
+**_¿Qué son las expresiones en GitHub Actions y cómo se usan?_**
+
+Vamos a trabajar con el archivo expresiones.yml que creamos anteriormente
+
+La sección de ayuda nos muestra que este archivo tiene un workflow dispatch como trigger, y dentro de este, se definen dos inputs: edad (un número) y nombre (un string).
+
+El job "mayor" verifica si edad >= número establecido. Si es cierto, se muestra "mayoría de edad" en la terminal.
+
+El segundo job verifica si edad < número designado. Si es cierto, muestra "minoría de edad".
+
+**_¿Por qué son importantes los contextos en GitHub Actions?_**
+
+Ahora que dominamos las expresiones, es tiempo de enfocarnos en los contextos. Un contexto en GitHub Actions es una forma de acceder a información relevante sobre ejecuciones de workflows, variables, entorno de runners, jobs y steps.
+
+Exploraremos los diferentes tipos de contextos que GitHub Actions nos ofrece y lo que podemos obtener de cada uno de ellos.
+
+**_¿Cuáles son los principales contextos que nos ofrece GitHub Actions?_**
+
+GitHub Actions ofrece una variedad de contextos, los más destacados son:
+
+**_GitHub Context:_** Detalles ejecución workflow. Ejemplo: github.actor obtiene nombre usuario actual.
+
+**_ENV Context:_** Acceso variables en flujo, job o pasos. Más detalles próx. clase.
+
+**_Contexto Vars:_** Acceso vars guardadas a nivel de ambiente, repo u org.
+
+**_Contexto Job:_** Info job actual. Acceso por nombre o identificador.
+
+**_Contexto Steps:_** Info steps actuales.
+
+**_Contexto Runner:_** Acceso info runner job.
+
+**_Contexto Secrets:_** Acceso a nombres y valores secretos en repo u org.
+
+**_Contexto Inputs:_** Usar entradas info en ciertos triggers.
+
+**_¿Cómo se usa un contexto en un workflow file?_**
+
+Un ejemplo de uso de contexto es un workflow file llamado "contexto" que se ejecuta en cada push a cualquier rama. Dentro de este file, hay un job llamado "checkMain" que verifica si estamos en la rama main usando el contexto GitHub y el atributo github.ref. Si estamos en la rama main, este job imprimirá "Desplegando en la rama main" en la terminal.
+
+Los contextos nos permiten acceder a información relevante de GitHub Actions, abriendo puertas para una configuración más innovadora y eficiente de nuestros jobs. Te animo a crear un nuevo archivo de workflow llamado contextos.yml empleando al menos un contexto
