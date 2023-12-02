@@ -1,5 +1,5 @@
 name: hello-world
-run-name: "GitHub Action - Triggers"
+run-name: "GitHub Action - Issues"
 on:
   issues:
     types: ["opened", "edited", "closed"]
