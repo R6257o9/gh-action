@@ -1,5 +1,5 @@
-name: hello-world
-run-name: "Hello, World! from TS script"
+name: triggers
+run-name: "GitHub Action - Triggers"
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
     types: [opened, labeled, edited, closed]
 
 jobs:
-  hello-world:
+  triggers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
