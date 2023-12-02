@@ -11,8 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploy on branch ${{ github.ref }}"
+      - run: echo "Deploy on branch ${{ github.ref }}"
         shell: bash
         env:
           BRANCH_NAME: ${{ github.ref }}
       - run: echo "Deploy on branch ${BRANCH_NAME/refs\/heads\//}"
+        shell: bash
+        env:
+          BRANCH_NAME: ${{ github.ref }}
       - run: echo "${{github.actor}} deploy a new context in GitHub-Action"
