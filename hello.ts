@@ -4,6 +4,6 @@ dotenv.config();
 
 const hello = () => {
   const name = process.env.USERNAME;
-  console.log(`Hello ${name} from GitHub`);
+  console.log(`Hey ${name} from GitHub`);
 };
 hello();
