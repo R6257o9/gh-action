@@ -1,6 +1,8 @@
 name: opened-issues
 run-name: "GitHub Actions - Opened Issue"
 on:
+  push:
+    branches: "02-triggers"
   issues:
     types:
       - "opened"
@@ -11,3 +13,16 @@ jobs:
     steps:
       - name: Print message
         run: echo "Created a new issue"
+
+  hello-world:
+    if: ${{ github.event_name != 'issues' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v4
+
+      - name: Run TS script
+        run: "ts-node main.ts"
