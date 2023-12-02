@@ -2,7 +2,7 @@ name: opened-issues
 run-name: "GitHub Actions - Opened Issue"
 on:
   push:
-    branches: "02-triggers"
+    branches: "main"
   issues:
     types:
       - "opened"
